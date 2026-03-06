@@ -171,48 +171,6 @@ Example operational policies:
 | Top 20% | Expanded monitoring coverage |
 
 This aligns model output with **clinical capacity constraints**.
-# Project Structure
-Clinical-Deterioration-Risk
-├───checks
-├───configs
-├───dashboards
-├───data
-│   ├───bronze
-│   │   ├───admissions
-│   │   ├───labs
-│   │   ├───outcomes
-│   │   └───vitals
-│   ├───checkpoints
-│   ├───gold
-│   │   ├───anchors
-│   │   ├───features
-│   │   ├───labels
-│   │   └───training_set
-│   ├───marts
-│   ├───raw
-│   │   ├───admissions
-│   │   ├───labs
-│   │   ├───outcomes
-│   │   └───vitals
-│   ├───silver
-│   │   ├───admissions
-│   │   ├───labs
-│   │   ├───outcomes
-│   │   └───vitals
-│   └───_tmp_parquet
-├───hadoop
-│   └───bin
-├───jobs
-├───notebooks
-├───outputs
-│   ├───dashboard
-│   └───predictions
-├───reports
-│   ├───metrics
-│   │   └───calibration_test
-│   └───models
-├───scripts
-└───__pycache__
 
 ### Directory Description
 
