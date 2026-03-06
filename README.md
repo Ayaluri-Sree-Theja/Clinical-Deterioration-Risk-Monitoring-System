@@ -38,6 +38,7 @@ Together these components simulate a **realistic operational risk monitoring sys
 # System Architecture
 
 The project follows a **Medallion Architecture** commonly used in modern data platforms.
+```
 Synthetic Data
 │
 ▼
@@ -63,6 +64,7 @@ Batch Risk Scoring
 │
 ▼
 Power BI Monitoring Dashboard
+```
 
 This architecture separates the system into clear processing stages:
 
