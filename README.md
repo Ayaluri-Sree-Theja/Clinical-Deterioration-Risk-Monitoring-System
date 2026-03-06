@@ -174,6 +174,80 @@ Example operational policies:
 
 This aligns model output with **clinical capacity constraints**.
 
+## Project Structure
+```
+Clinical - Deterioration - Risk
+|   .gitignore
+|   ARCHITECTURE.md
+|   DATA_DICTIONARY.md
+|   LICENSE
+|   MODEL_CARD.md
+|   PROBLEM_DEFINITION.md
+|   py.py
+|   QUALITY_CHECKS.md
+|   README.md
+|
++---checks
+|       bronze_checks.py
+|       gold_checks.py
+|       leakage_checks.py
+|       silver_checks.py
+|
++---configs
+|       features.yml
+|       project.yml
+|       synth.yml
+|       thresholds.yml
+|       
++---dashboards
+|       Clinical_CommandCenter.pbix
+|
++---data
+|   +---bronze
+|   |   +---admissions
+|   |   +---labs
+|   |   +---outcomes
+|   |   +---vitals
+|   +---checkpoints
+|   +---gold
+|   |   +---anchors
+|   |   +---features
+|   |   +---labels
+|   |   \---training_set
+|   +---marts
+|   +---raw
+|   |   +---admissions
+|   |   +---labs
+|   |   +---outcomes
+|   |   \---vitals
+|   +---silver
+|   |   +---admissions
+|   |   +---labs
+|   |   +---outcomes
+|   |   \---vitals
++---hadoop
+|   \---bin
++---jobs
+|       00_synthesize_data.py
+|       10_bronze_ingest.py
+|       20_bronze_to_silver.py
+|       30_silver_to_gold_features.py
+|       40_build_labels.py
+|       45_build_training_set.py
+|       50_train_sparkml.py
+|       60_evaluate.py
+|       70_batch_score.py
+|       75_export_powerbi_dataset.py
+|
++---notebooks
++---outputs
+|   +---dashboard
++---reports
+|   +---metrics
+|   \---models
++---scripts
+```
+
 ### Directory Description
 
 | Directory | Description |
