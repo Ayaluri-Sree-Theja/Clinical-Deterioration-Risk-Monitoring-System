@@ -172,87 +172,47 @@ Example operational policies:
 
 This aligns model output with **clinical capacity constraints**.
 # Project Structure
-clinical-deterioration-risk/
-│
-├── checks/
-│ ├── bronze_checks.py
-│ ├── silver_checks.py
-│ ├── gold_checks.py
-│ └── leakage_checks.py
-│
-├── configs/
-│ ├── project.yml
-│ ├── synth.yml
-│ ├── features.yml
-│ └── thresholds.yml
-│
-├── dashboards/
-│ └── Clinical_CommandCenter.pbix
-│
-├── data/
-│ ├── raw/
-│ │ ├── admissions/
-│ │ ├── labs/
-│ │ ├── outcomes/
-│ │ └── vitals/
-│ │
-│ ├── bronze/
-│ │ ├── admissions/
-│ │ ├── labs/
-│ │ ├── outcomes/
-│ │ └── vitals/
-│ │
-│ ├── silver/
-│ │
-│ ├── gold/
-│ │ ├── anchors/
-│ │ ├── features/
-│ │ ├── labels/
-│ │ └── training_set/
-│ │
-│ ├── marts/
-│ ├── checkpoints/
-│ └── tmp_parquet/
-│
-├── jobs/
-│ ├── 00_synthesize_data.py
-│ ├── 10_bronze_ingest.py
-│ ├── 20_bronze_to_silver.py
-│ ├── 30_silver_to_gold_features.py
-│ ├── 40_build_labels.py
-│ ├── 45_build_training_set.py
-│ ├── 50_train_sparkml.py
-│ ├── 60_evaluate.py
-│ ├── 70_batch_score.py
-│ └── 75_export_powerbi_dataset.py
-│
-├── notebooks/
-│
-├── outputs/
-│ ├── dashboard/
-│ │ └── pbi_risk_dataset/
-│ │ ├── pbi_risk_dataset.csv
-│ │ └── parquet outputs
-│ │
-│ └── predictions/
-│ ├── risk_scores_/
-│ └── risk_scores_sample_*/
-│
-├── reports/
-│ ├── metrics/
-│ └── models/
-│
-├── scripts/
-│ └── env_local.bat
-│
-├── ARCHITECTURE.md
-├── DATA_DICTIONARY.md
-├── MODEL_CARD.md
-├── PROBLEM_DEFINITION.md
-├── QUALITY_CHECKS.md
-├── README.md
-│
-└── py.py
+Clinical-Deterioration-Risk
+├───checks
+├───configs
+├───dashboards
+├───data
+│   ├───bronze
+│   │   ├───admissions
+│   │   ├───labs
+│   │   ├───outcomes
+│   │   └───vitals
+│   ├───checkpoints
+│   ├───gold
+│   │   ├───anchors
+│   │   ├───features
+│   │   ├───labels
+│   │   └───training_set
+│   ├───marts
+│   ├───raw
+│   │   ├───admissions
+│   │   ├───labs
+│   │   ├───outcomes
+│   │   └───vitals
+│   ├───silver
+│   │   ├───admissions
+│   │   ├───labs
+│   │   ├───outcomes
+│   │   └───vitals
+│   └───_tmp_parquet
+├───hadoop
+│   └───bin
+├───jobs
+├───notebooks
+├───outputs
+│   ├───dashboard
+│   └───predictions
+├───reports
+│   ├───metrics
+│   │   └───calibration_test
+│   └───models
+├───scripts
+└───__pycache__
 
 ### Directory Description
 
