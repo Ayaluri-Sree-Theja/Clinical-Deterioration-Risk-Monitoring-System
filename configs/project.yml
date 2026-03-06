@@ -1,0 +1,65 @@
+project:
+  name: clinical-deterioration-risk
+  timezone: "UTC"              
+  seed: 42
+
+paths:
+  data_root: "data"
+  raw: "data/raw"
+  bronze: "data/bronze"
+  silver: "data/silver"
+  gold: "data/gold"
+  marts: "data/marts"
+  checkpoints: "data/checkpoints"
+  reports: "reports"
+  outputs: outputs
+
+spark:
+  master: "local[2]"           
+  driver_memory: "2g"
+  shuffle_partitions: 16
+  default_parallelism: 16
+  checkpoint_dir: "data/checkpoints"
+
+tables:
+  raw:
+    admissions: "raw_admissions"
+    vitals: "raw_vitals"
+    labs: "raw_labs"
+    outcomes: "raw_outcomes"
+  bronze:
+    admissions: "bronze_admissions"
+    vitals: "bronze_vitals"
+    labs: "bronze_labs"
+    outcomes: "bronze_outcomes"
+  silver:
+    admissions: "silver_admissions"
+    vitals: "silver_vitals"
+    labs: "silver_labs"
+    outcomes: "silver_outcomes"
+  gold:
+    anchors: "gold_anchors"
+    features: "gold_features"
+    labels: "gold_labels"
+    training: "gold_training_set"
+  marts:
+    risk_scores: "mart_risk_scores"
+    model_metrics: "mart_model_metrics"
+    data_quality: "mart_data_quality"
+
+time:
+  anchor_cadence_hours: 4
+  feature_windows_hours: [6, 12, 24]
+  label_horizon_hours_min: 24
+  label_horizon_hours_max: 48
+
+splits:
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+  split_by: "patient_id"       
+
+dashboard:
+  rows: 50000
+  alert_rate: 0.10
+  alerted_fraction: 0.50  

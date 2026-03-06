@@ -1,0 +1,25 @@
+# How you evaluate "early warning" usefulness:
+# use top-K alert rates rather than a single arbitrary threshold.
+
+alert_rates:
+  - 0.05
+  - 0.10
+  - 0.20
+
+operating_points:
+  primary:
+    alert_rate: 0.10
+    description: "Top 10% highest-risk anchors are flagged"
+
+metrics:
+  classification:
+    - "auroc"
+    - "auprc"
+    - "brier"          # calibration-ish summary
+  topk:
+    - "recall_at_k"
+    - "precision_at_k"
+    - "lift_at_k"
+
+calibration:
+  bins: 10

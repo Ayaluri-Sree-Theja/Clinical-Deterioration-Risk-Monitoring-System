@@ -1,0 +1,38 @@
+# Feature engineering rules
+entities:
+  vitals: ["hr", "sbp", "dbp", "spo2"]
+  labs: ["wbc", "creatinine", "lactate"]
+
+windows_hours: [6, 12, 24]
+
+aggregations:
+  numeric:
+    - "mean"
+    - "min"
+    - "max"
+    - "std"
+    - "last"          # most recent value prior to anchor
+    - "slope"         # simple trend: (last - first) / hours
+    - "count"         # measurement density (very important in EHR-like data)
+    - "missing_rate"  # % missing within the window for that variable
+
+normalization:
+  clip_ranges:
+    hr: [30, 220]
+    sbp: [60, 240]
+    dbp: [30, 140]
+    spo2: [70, 100]
+    wbc: [0.5, 60]
+    creatinine: [0.2, 12]
+    lactate: [0.2, 20]
+
+derived_features:
+  - name: "pulse_pressure_last"
+    formula: "sbp_last - dbp_last"
+  - name: "map_last"
+    formula: "(2*dbp_last + sbp_last)/3"
+
+keys:
+  patient_id: "patient_id"
+  admission_id: "admission_id"
+  anchor_time: "anchor_time"

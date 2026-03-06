@@ -1,0 +1,94 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Spark / Hadoop
+# =========================
+data/checkpoints/
+data/_tmp_parquet/
+
+# Spark temporary files
+*.crc
+_SUCCESS
+*.snappy.parquet
+
+# =========================
+# Data directories
+# =========================
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+data/marts/
+
+# =========================
+# Outputs
+# =========================
+outputs/
+reports/models/
+reports/metrics/
+
+# =========================
+# Generated predictions
+# =========================
+outputs/predictions/
+outputs/dashboard/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Environment files
+# =========================
+.env
+.env.local
+
+# =========================
+# Windows Hadoop binaries
+# =========================
+hadoop_bin/
+
+# =========================
+# Local scripts
+# =========================
+scripts/env_local.bat
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp

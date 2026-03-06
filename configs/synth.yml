@@ -1,0 +1,36 @@
+seed: 42
+
+scale:
+  patients: 3000
+  admissions: 4000
+  los_days_min: 2
+  los_days_max: 5
+
+cadence:
+  vitals_minutes: 30
+  labs_hours: 8
+  anchor_hours: 4
+
+missingness:
+  vitals_missing_rate: 0.05
+  labs_missing_rate: 0.10
+
+noise:
+  vitals_noise_std:
+    hr: 6
+    sbp: 10
+    dbp: 7
+    spo2: 1.5
+  labs_noise_std:
+    wbc: 1.8
+    creatinine: 0.25
+    lactate: 0.5
+
+outcomes:
+  deterioration_rate: 0.06
+  label_horizon_hours_min: 24
+  label_horizon_hours_max: 48
+
+storage:
+  raw_format: "parquet"
+  partition_cols: ["event_date"]
